@@ -1,5 +1,5 @@
 {
-  "name": "countries_app",
+  "name": "countries_list",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -13,6 +13,8 @@
     "buildApk": "cd android && ./gradlew assembleRelease && cd .."
   },
   "dependencies": {
+    "@apollo/client": "^3.3.15",
+    "graphql": "^15.5.0",
     "react": "17.0.1",
     "react-native": "0.64.0"
   },
