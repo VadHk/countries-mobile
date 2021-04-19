@@ -3,13 +3,13 @@ import { Dimensions } from 'react-native';
 
 export default styles = StyleSheet.create({
     wrapper: {
-        flexDirection: 'column'
+        flexDirection: 'column',
     },
 
     container: {
         paddingHorizontal: 20,
         paddingTop: 10,
-        maxHeight: Dimensions.get('screen').height * 0.85,
+        maxHeight: Dimensions.get('screen').height,
         backgroundColor: '#ffffff',
     },
 

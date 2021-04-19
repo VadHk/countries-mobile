@@ -1,19 +1,42 @@
 import React from "react";
-import { SafeAreaView, StyleSheet} from "react-native";
-import Dashboard from "./pages/dashboard";
 
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import Dashboard from "./pages/dashboard";
+import CountryDetail from "./pages/countryDetail";
+
+const Stack = createStackNavigator();
+const MainTheme = {
+  ...DefaultTheme,
+  dark: false,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#ffffff',
+    background: '#ffffff',
+  },
+};
 export default class App extends React.Component{
     constructor(props){
         super(props);
-
-        this.state = {};
     }
 
     render(){
-        return (<SafeAreaView style={styles.container}>
-            <Dashboard/>
-        </SafeAreaView>);
+        return (
+          <NavigationContainer theme={MainTheme}>
+            <Stack.Navigator>
+              <Stack.Screen 
+                name='Dashboard' 
+                component={Dashboard} 
+                options={{ headerShown: true, title: 'Countries' }}
+              />
+              <Stack.Screen 
+                name='CountryDetail' 
+                component={CountryDetail} 
+                options={{ headerShown: true, title: 'Country Detail' }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        );
     }
 }
-
-const styles = StyleSheet.create({})
