@@ -3,7 +3,8 @@ import { View, SafeAreaView, FlatList, Text, TouchableOpacity } from "react-nati
 import CountryService from "../../services/countries_service";
 import Country from "../../models/country_model";
 import styles from "./style";
-import { push } from "../../services/navigation_service";
+import CountryDetail from "../countryDetail";
+import Header from "../../components/header";
 
 export default class Dashboard extends React.Component{
     constructor(props){
@@ -13,7 +14,7 @@ export default class Dashboard extends React.Component{
     }
 
     render(){
-        return (<View >
+        return (<View>
             <Header title='Countries' />
             <View style={styles.container}>
                 <CountryService>
@@ -38,8 +39,6 @@ export default class Dashboard extends React.Component{
                             );
                         });
 
-                        console.log(countries);
-
                         if(loading) {
                             return (<Text>Loading...</Text>);
                         }
@@ -47,6 +46,17 @@ export default class Dashboard extends React.Component{
                         if(error) {
                             return (<Text>Error!</Text>);
                         }
+
+                        // countries.push(
+                        //     new Country(
+                        //         1,
+                        //         'Ukrane',
+                        //         'Kiev',
+                        //         ['Ukrainian']
+                        //     )
+                        // );
+
+                        console.log(countries);
                     
                         return (<SafeAreaView>
                             <FlatList
@@ -65,7 +75,6 @@ export default class Dashboard extends React.Component{
 
     listItem = (item) => {
         return (<TouchableOpacity onPress={()=> {
-            // push();
         }}>
             <View style={styles.listItem}>
                 <Text style={styles.listItemTitle}>{item.name}</Text>
