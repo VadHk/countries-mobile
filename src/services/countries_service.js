@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 
-export default CountriesService = () => {
+export default  CountryService = ({ children }) => {
 
     const GET_COUNTRIES = gql`
         query {
@@ -15,6 +15,8 @@ export default CountriesService = () => {
 
     const { loading, error, data } = useQuery(GET_COUNTRIES);
 
-    return data;
+    // console.log(data && data.Country && data.Country[0]);
+
+    return children({ data, error, loading });
 }
 
