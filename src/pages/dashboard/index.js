@@ -26,7 +26,7 @@ export default class Dashboard extends React.Component{
                             let languages = [];
 
                             element.officialLanguages.forEach(element => {
-                                languages.push(element.name);
+                                languages.push({id: element._id, name: element.name});
                             });
 
                             countries.push(

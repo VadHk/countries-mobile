@@ -1,6 +1,7 @@
 import React from "react";
-import { View, SafeAreaView, FlatList, Text, TouchableOpacity } from "react-native";
+import { View, SafeAreaView, FlatList, Text } from "react-native";
 import Header from "../../components/header";
+import styles from "./style";
 
 export default class CountryDetail extends React.Component{
     constructor(props){
@@ -12,15 +13,15 @@ export default class CountryDetail extends React.Component{
     render(){
         const {country} = this.props;
 
-        return(<SafeAreaView>
+        return(<SafeAreaView style={styles.wrapper}>
             <Header title = {country.name} />
-            <View>
-                <Text>Official Languages</Text>
+            <View style={styles.container}>
+                <Text style={styles.title}>Official Languages</Text>
                 <FlatList
                     data={country.languages}
                     renderItem={({item}) => {
-                        return(<View>
-                            <Text>item.name</Text>
+                        return(<View style={styles.listItem}>
+                            <Text style={styles.listItemTitle}>{item.name}</Text>
                         </View>);
                     }}
                     keyExtractor={item => item.id.toString()}

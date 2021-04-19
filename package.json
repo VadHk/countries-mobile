@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint .",
     "postInstall": "npx jetify && cd ios && pod install && cd ..",
-    "reinstall": "rm -rf node_modules && npm i --save && npm run postInstall",
+    "reinstall": "rm -rf node_modules && npm i && npm run postInstall",
     "buildApk": "cd android && ./gradlew assembleRelease && cd .."
   },
   "dependencies": {
